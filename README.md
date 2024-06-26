@@ -1,6 +1,6 @@
 # Number Guessing Game
 
-This is a simple number guessing game written in Python. The program randomly selects a number within a specified range, and the player attempts to guess the number. The game provides feedback whether the guess should be higher or lower and tracks the number of attempts.
+This is a simple number guessing game I made in Python. The program randomly selects a number within a specified range, and the player attempts to guess the number. The game provides feedback whether the guess should be higher or lower and tracks the number of attempts.
 
 ## Features
 
