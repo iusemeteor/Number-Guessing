@@ -1,25 +1,22 @@
 import random
 
-def main():
-    print("Welcome to the meteor guessing game")
-    print("I'm thinking if a number between 1 and 10.")
+randomnum = random.randrange(10)
+attempts = 0
 
-    random_number = random.randint(1, 10)
-    guess = None
-    attempts = 0
-
-    while guess != random_number:
-        try:
-            guess = int(input("Guess the number: "))
-            attempts += 1
-            if guess > random_number:
-                print("That is too high!")
-            elif guess < random_number:
-                print("That is too low!")
-            else:
-                print(f"You have guessed the number in {attempts} attempts.")
-        except ValueError:
-            print("That is an invalid number!")
-
-if __name__ == '__main__':
-    main()
+while True:
+    guess = input("Give me a number between 1-10: ")
+    if guess.isdigit():
+        attempts += 1
+        guess = int(guess)
+        if guess < randomnum:
+            print("Try higher")
+        elif guess > randomnum:
+            print("Try lower")
+        if guess == randomnum and attempts == 1:
+            print(f"You have guessed the correct number in one attempt, ggs.")
+            break
+        elif guess == randomnum:
+            print(f"You have gussed the correct number in {attempts} attempts.")
+            break
+    else:
+        print("That's not a number")
