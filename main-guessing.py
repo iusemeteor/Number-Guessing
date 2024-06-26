@@ -1,7 +1,8 @@
 import random
 
-randomnum = random.randrange(10)
+randomnum = random.randint(1, 10)
 attempts = 0
+print(randomnum)
 
 while True:
     guess = input("Give me a number between 1-10: ")
