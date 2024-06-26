@@ -1,23 +1,43 @@
 import random
 
-randomnum = random.randint(1, 10)
+HIGHEST_NUMBER = 100
+LOWEST_NUMBER = 1
+
+VERSION = "v2.0.0"
+AUTHOR = "meteor"
+
+CHEAT = False
+
+randomnum = random.randint(LOWEST_NUMBER, HIGHEST_NUMBER)
 attempts = 0
-print(randomnum)
+
+print(f"Number Guessing Game | {VERSION}")
+print(f"Author: {AUTHOR}")
+print("Status: ✅")
+if CHEAT == True:
+    print(f"Number: {randomnum}")
+print("")
+def victory():
+    if guess == randomnum and attempts == 1:
+        print(f"You have guessed the correct number in one attempt, wow!")
+        exit()
+    elif guess == randomnum:
+        print(f"You have guessed the correct number in {attempts} attempts.")
+        exit()
+def checks():
+    if guess < randomnum:
+        print("Try higher")
+    elif guess > randomnum:
+        print("Try lower")
 
 while True:
-    guess = input("Give me a number between 1-10: ")
+    HIGHEST_NUMBER = str(HIGHEST_NUMBER)
+    LOWEST_NUMBER = str(LOWEST_NUMBER)
+    guess = input("I am thinking of a number between " + LOWEST_NUMBER + "-" + HIGHEST_NUMBER + ", can you try and guess it? ")
     if guess.isdigit():
         attempts += 1
         guess = int(guess)
-        if guess < randomnum:
-            print("Try higher")
-        elif guess > randomnum:
-            print("Try lower")
-        if guess == randomnum and attempts == 1:
-            print(f"You have guessed the correct number in one attempt, ggs.")
-            break
-        elif guess == randomnum:
-            print(f"You have gussed the correct number in {attempts} attempts.")
-            break
+        checks()
+        victory()
     else:
-        print("That's not a number")
+        print("That is an invalid number!")
